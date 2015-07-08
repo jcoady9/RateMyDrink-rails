@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  type: 
   name: MyString
   description: MyString
-  rating: 1.5
+  rating: 
+  rating: 
+  drink_type: MyString
+  abv: 
+  abv: 
 
 two:
+  type: 
   name: MyString
   description: MyString
-  rating: 1.5
+  rating: 
+  rating: 
+  drink_type: MyString
+  abv: 
+  abv: 
