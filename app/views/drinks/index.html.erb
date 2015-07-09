@@ -5,11 +5,13 @@
 <table>
 	<tr>
 		<th>Name:</th>
+		<th>Type:</th>
 	</tr>
 
 	<%= @drinks.each do |drink| %>
 		<tr>
 			<td><%= drink.name %></td>
+			<td><%= drink.type %></td>
 			<td><%= link_to 'show', drink_path(drink) %></td>
 			<td><%= link_to 'delete', drinks_path(drink),
 					method: :delete,
