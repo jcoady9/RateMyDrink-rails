@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :drinks
 
+  resources :beers, controller: 'drinks', type: 'Beer'
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
