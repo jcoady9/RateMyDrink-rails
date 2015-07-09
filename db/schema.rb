@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706191239) do
+ActiveRecord::Schema.define(version: 20150708205012) do
 
   create_table "drinks", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.float    "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
+    t.string "type"
+    t.string "name",        limit: 60
+    t.string "description", limit: 512
+    t.float  "rating"
+    t.string "drink_type",  limit: 25
+    t.float  "abv"
   end
 
 end
