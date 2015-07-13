@@ -1,8 +1,8 @@
 class DrinksController < ApplicationController
-	before_action :set_class
+	before_action :set_beverage
 
 	def index
-		@drinks = drink_subclass.all
+		@drinks = beverage.all
 	end
 
 	def show
@@ -14,16 +14,22 @@ class DrinksController < ApplicationController
 	end
 
 	def edit
+		# not implemented
+		render status: 501
 	end
 
 	def create
 		@drink = Drink.new(drink_params)
 		if @drink.save
 			redirect_to @drink
+		else 
+			render 'new'
 		end
 	end
 
 	def update
+		# not implemented
+		render status: 501
 	end
 
 	def destroy
@@ -35,19 +41,28 @@ class DrinksController < ApplicationController
 	private 
 
 		def drink_params
-			params.require(:drink).permit(:name, :description, :rating, :drink_type, :abv)
+
+			drink_class = nil
+
+			Drink.beverage_types.each do |drink|
+				if params.has_key?(drink.downcase.to_sym)
+					drink_class = drink.downcase.to_sym
+				end
+			end
+
+			params.require(drink_class).permit(:name, :description, :rating, :drink_type, :abv)
 		end
 
-		def set_class
-			@type = class_type
+		def set_beverage
+			@type = beverage_type
 		end
 
-		def class_type
-			Drink.types.include?(params[:type]) ? params[:type] : "Drink"
+		def beverage_type
+			Drink.beverage_types.include?(params[:type]) ? params[:type] : "Drink"
 		end
 
-		def drink_subclass
-			class_type.constantize
+		def beverage
+			beverage_type.constantize
 		end
 
 end

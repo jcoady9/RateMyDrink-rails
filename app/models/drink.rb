@@ -9,14 +9,18 @@
 
 class Drink < ActiveRecord::Base
 	validates :name, presence: true
-	validates :descricption, presence: true
+	validates :description, presence: true
 	validates :rating, presence: true
 	validates :drink_type, presence: true
 	validates :abv, presence: true
 
 	scope :beers, -> { where(type: 'Beer')}
 
-	def self.types
+	def types
+		stuff = []
+	end
+
+	def self.beverage_types
 		%w(Beer)
 	end
 

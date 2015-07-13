@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :drinks
 
-  resources :beers, controller: 'drinks', type: 'Beer'
+  get 'beers/new', to: 'drinks#new_beer', as: :new_beer
+
+  resources :beers, controller: 'drinks', type: 'Beer', except: :new
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'

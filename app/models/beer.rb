@@ -9,8 +9,9 @@
 
 class Beer < Drink
 
-	def valid_beer_type
-		# determines whether the drink_type is valid for Beer class
+	def self.types
+		beer_types = ["Ale", "Bock", "Dunkel", "Lambic", "Pale Ale", "IPA", "Lager", "Stout", 
+					"Pilsner"]
 	end
 
 end
