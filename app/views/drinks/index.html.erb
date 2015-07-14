@@ -14,7 +14,7 @@
 			<td><%= drink.name %></td>
 			<td><%= drink.type %></td>
 			<td><%= link_to 'show', drink_path(drink) %></td>
-			<td><%= link_to 'delete', drinks_path(drink),
+			<td><%= link_to 'delete', drink_path(drink),
 					method: :delete,
 					data: { confirm: 'Are you sure?'} %></td>
 		</tr>
