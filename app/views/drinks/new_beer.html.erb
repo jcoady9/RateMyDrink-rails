@@ -1,4 +1,4 @@
-<%= form_for :beer, url: drinks_path do |f| %>
+<%= form_for :beer, as: :beer, url: drinks_path do |f| %>
 
 	<p>
 		<%= f.label :name %><br>
@@ -28,4 +28,5 @@
 	<p>
 		<%= f.submit %>
 	</p>
+	
 <% end %>

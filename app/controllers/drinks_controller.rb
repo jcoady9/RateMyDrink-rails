@@ -6,11 +6,11 @@ class DrinksController < ApplicationController
 	end
 
 	def show
-		@drink = Drink.find(params[:id])
+		@drink = beverage.find(params[:id])
 	end
 
 	def new
-		@drink = Drink.new
+		@drink = beverage.new
 	end
 
 	def edit
@@ -19,7 +19,14 @@ class DrinksController < ApplicationController
 	end
 
 	def create
-		@drink = Drink.new(drink_params)
+		@drink = nil
+		case drink_class
+			when "Beer"
+				@drink = Beer.new(drink_params)
+			else
+				render status: 500
+		end
+
 		if @drink.save
 			redirect_to @drink
 		else 
@@ -33,24 +40,23 @@ class DrinksController < ApplicationController
 	end
 
 	def destroy
-		@drink = Drink.find(params[:id])
+		@drink = beverage.find(params[:id])
 		@drink.destroy
 		redirect_to drinks_path
 	end
 
 	private 
 
-		def drink_params
-
-			drink_class = nil
-
+		def drink_class
 			Drink.beverage_types.each do |drink|
 				if params.has_key?(drink.downcase.to_sym)
-					drink_class = drink.downcase.to_sym
+					return drink
 				end
 			end
+		end
 
-			params.require(drink_class).permit(:name, :description, :rating, :drink_type, :abv)
+		def drink_params
+			params.require(drink_class.downcase.to_sym).permit(:name, :description, :rating, :drink_type, :abv)
 		end
 
 		def set_beverage
@@ -59,6 +65,7 @@ class DrinksController < ApplicationController
 
 		def beverage_type
 			Drink.beverage_types.include?(params[:type]) ? params[:type] : "Drink"
+			# params[:type] if params[:type].in? Drink.beverage_types
 		end
 
 		def beverage
