@@ -21,7 +21,7 @@ class Drink < ActiveRecord::Base
 	end
 
 	def self.beverage_types
-		%w(Beer)
+		%w(Beer Liquor)
 	end
 
 end

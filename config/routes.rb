@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :drinks, except: [:new, :post, :edit, :destroy, :create]
+  resources :drinks
 
   get 'beers/new', to: 'drinks#new_beer', as: :new_beer
-
   resources :beers, controller: 'drinks', type: 'Beer', except: :new
+
+  get 'liquors/new', to: 'drinks#new_liquor', as: :new_liquor
+  resources :liquor, controller: 'drinks', type: "Liquor", except: :new
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
