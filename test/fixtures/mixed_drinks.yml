@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  rating: 1.5
+  drink_type: MyString
+  abv: 1.5
+  ingredients_id: 
+
+two:
+  name: MyString
+  description: MyString
+  rating: 1.5
+  drink_type: MyString
+  abv: 1.5
+  ingredients_id: 

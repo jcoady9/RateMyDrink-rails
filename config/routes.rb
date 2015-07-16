@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   resources :beers, controller: 'drinks', type: 'Beer', except: :new
 
   get 'liquors/new', to: 'drinks#new_liquor', as: :new_liquor
-  resources :liquor, controller: 'drinks', type: "Liquor", except: :new
+  resources :liquor, controller: 'drinks', type: 'Liquor', except: :new
+
+  get 'mixed_drinks/new', to: 'drinks#new_mixed_drink', as: :new_mixed_drink
+  resources :mixed_drinks, controller: 'drinks', type: 'MixedDrink', except: :new do 
+    resources :ingredients
+  end
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
