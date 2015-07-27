@@ -1,0 +1,43 @@
+                     Prefix Verb   URI Pattern                                                  Controller#Action
+              welcome_index GET    /welcome/index(.:format)                                     welcome#index
+                     drinks GET    /drinks(.:format)                                            drinks#index
+                            POST   /drinks(.:format)                                            drinks#create
+                  new_drink GET    /drinks/new(.:format)                                        drinks#new
+                 edit_drink GET    /drinks/:id/edit(.:format)                                   drinks#edit
+                      drink GET    /drinks/:id(.:format)                                        drinks#show
+                            PATCH  /drinks/:id(.:format)                                        drinks#update
+                            PUT    /drinks/:id(.:format)                                        drinks#update
+                            DELETE /drinks/:id(.:format)                                        drinks#destroy
+                   new_beer GET    /beers/new(.:format)                                         drinks#new_beer
+                      beers GET    /beers(.:format)                                             drinks#index {:type=>"Beer"}
+                            POST   /beers(.:format)                                             drinks#create {:type=>"Beer"}
+                  edit_beer GET    /beers/:id/edit(.:format)                                    drinks#edit {:type=>"Beer"}
+                       beer GET    /beers/:id(.:format)                                         drinks#show {:type=>"Beer"}
+                            PATCH  /beers/:id(.:format)                                         drinks#update {:type=>"Beer"}
+                            PUT    /beers/:id(.:format)                                         drinks#update {:type=>"Beer"}
+                            DELETE /beers/:id(.:format)                                         drinks#destroy {:type=>"Beer"}
+                 new_liquor GET    /liquors/new(.:format)                                       drinks#new_liquor
+               liquor_index GET    /liquor(.:format)                                            drinks#index {:type=>"Liquor"}
+                            POST   /liquor(.:format)                                            drinks#create {:type=>"Liquor"}
+                edit_liquor GET    /liquor/:id/edit(.:format)                                   drinks#edit {:type=>"Liquor"}
+                     liquor GET    /liquor/:id(.:format)                                        drinks#show {:type=>"Liquor"}
+                            PATCH  /liquor/:id(.:format)                                        drinks#update {:type=>"Liquor"}
+                            PUT    /liquor/:id(.:format)                                        drinks#update {:type=>"Liquor"}
+                            DELETE /liquor/:id(.:format)                                        drinks#destroy {:type=>"Liquor"}
+            new_mixed_drink GET    /mixed_drinks/new(.:format)                                  drinks#new_mixed_drink
+    mixed_drink_ingredients GET    /mixed_drinks/:mixed_drink_id/ingredients(.:format)          ingredients#index {:type=>"MixedDrink"}
+                            POST   /mixed_drinks/:mixed_drink_id/ingredients(.:format)          ingredients#create {:type=>"MixedDrink"}
+ new_mixed_drink_ingredient GET    /mixed_drinks/:mixed_drink_id/ingredients/new(.:format)      ingredients#new {:type=>"MixedDrink"}
+edit_mixed_drink_ingredient GET    /mixed_drinks/:mixed_drink_id/ingredients/:id/edit(.:format) ingredients#edit {:type=>"MixedDrink"}
+     mixed_drink_ingredient GET    /mixed_drinks/:mixed_drink_id/ingredients/:id(.:format)      ingredients#show {:type=>"MixedDrink"}
+                            PATCH  /mixed_drinks/:mixed_drink_id/ingredients/:id(.:format)      ingredients#update {:type=>"MixedDrink"}
+                            PUT    /mixed_drinks/:mixed_drink_id/ingredients/:id(.:format)      ingredients#update {:type=>"MixedDrink"}
+                            DELETE /mixed_drinks/:mixed_drink_id/ingredients/:id(.:format)      ingredients#destroy {:type=>"MixedDrink"}
+               mixed_drinks GET    /mixed_drinks(.:format)                                      drinks#index {:type=>"MixedDrink"}
+                            POST   /mixed_drinks(.:format)                                      drinks#create {:type=>"MixedDrink"}
+           edit_mixed_drink GET    /mixed_drinks/:id/edit(.:format)                             drinks#edit {:type=>"MixedDrink"}
+                mixed_drink GET    /mixed_drinks/:id(.:format)                                  drinks#show {:type=>"MixedDrink"}
+                            PATCH  /mixed_drinks/:id(.:format)                                  drinks#update {:type=>"MixedDrink"}
+                            PUT    /mixed_drinks/:id(.:format)                                  drinks#update {:type=>"MixedDrink"}
+                            DELETE /mixed_drinks/:id(.:format)                                  drinks#destroy {:type=>"MixedDrink"}
+                       root GET    /                                                            welcome#index

@@ -1,0 +1,32 @@
+<h1>New Mixed Drink</h1>
+
+<%= form_for :mixed_drink, url: drinks_path do |f| %>
+
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+	</p>
+
+	<p>
+		<%= f.label :rating %><br>
+		<%= f.text_field :rating %>
+	</p>
+
+	<h3>Ingredients:</h3>
+
+	<!-- add ingredients here -->
+ 	<%= fields_for :ingrdient do |i| %>
+		<%= i.label :name %>
+		<%= i.text_field :amount %>
+	<% end %>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
