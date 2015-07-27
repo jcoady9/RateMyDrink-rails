@@ -20,8 +20,11 @@
 	<h3>Ingredients:</h3>
 
 	<!-- add ingredients here -->
- 	<%= fields_for :ingrdient do |i| %>
-		<%= i.label :name %>
+ 	<%= fields_for :ingredient do |i| %>
+		<%= i.label :name %><br>
+		<%= i.text_field :name %><br>
+
+		<%= i.label :amount %><br>
 		<%= i.text_field :amount %>
 	<% end %>
 

@@ -25,6 +25,8 @@ class DrinksController < ApplicationController
 				@drink = Beer.new(drink_params)
 			when "Liquor"
 				@drink = Liquor.new(drink_params)
+			when "MixedDrink"
+				@drink = MixedDrink.new(drink_params)
 			else
 				render status: 500
 		end
